@@ -4,13 +4,19 @@
 
 #### To Do
 
-- Render smart characters in ~erik's blog posts better
+- Render smart characters in ~erik's blog posts better with GSUB
 - figure out what to do about relative paths in ~erik's blog (probably doable!)
 - move the runner logic into a runner file (out of newspaper model)
 - better error handling when you enter a URL that is not radiation approved
 
 
 #### Bigger Things to Add
-- The CLI component
+- The CLI component. One choice to add a new following-- check right then if the URL is hazmat compliant
+- Clean up  file structure
+- Consider adding a default style sheet (does Radiation have this)
+- Ability to, by default, render first x lines. Then create a permalink: 
+`<a href="<%=blog_name%><%=file_name%>">Read More</a>`
 - mention notifications! 
-
+- Make scraper super robust / error handling
+- Write a test to quickly and easily find out if a follow request blog is Hazmat compliant
+- Change Radiation default template to wrap post content in a new, separate div (see ~erik's blog as example)
