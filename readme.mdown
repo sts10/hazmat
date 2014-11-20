@@ -10,7 +10,7 @@ VERY MUCH IN DEVELOPMENT!
 
 ### How To Use v 0.0.3
 
-Clone down the directory locally.
+1. Clone down the directory locally.
 2. `cd` into directory. 
 3. Run `gem install nokogiri`.
 4. Now run `ruby bin/binner`
