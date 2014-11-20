@@ -19,7 +19,8 @@ class Newspaper
     end
     @posts_array.flatten
     
-    # sort @posts_array by .time_stamp
+    # this is untested!!!
+    @posts_array.sort_by { |post| post.file_name }
 
     puts "Printing your newspaper..."
 
