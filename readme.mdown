@@ -15,8 +15,9 @@
 - Clean up  file structure
 - Consider adding a default style sheet (does Radiation have this)
 - Ability to, by default, render first x lines. Then create a permalink: 
-`<a href="<%=blog_name%><%=file_name%>">Read More</a>`
-- mention notifications! 
+`<a href="<%= post.perma_url %>">Read More</a>`
+
 - Make scraper super robust / error handling
 - Write a test to quickly and easily find out if a follow request blog is Hazmat compliant
 - Change Radiation default template to wrap post content in a new, separate div (see ~erik's blog as example)
+- mention notifications! 
