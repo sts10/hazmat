@@ -19,6 +19,8 @@ class PostScraper
       this_post.content = this_post.content.gsub("“", "&ldquo;").gsub("”", "&rdquo;").gsub("‘", "&lsquo;").gsub("’", "&rsquo;").gsub("–", "&mdash;")  
       this_post.content = this_post.content.gsub("&acirc;&#128;&#156;", '"').gsub("&acirc;&#128;&#153;", "'")
 
+      # this_post.content = this_post.content[0..1800]
+
       this_post.base_url = @url.to_s
       this_post.user_name = @url.to_s.partition('~').last.gsub('/','')
 
