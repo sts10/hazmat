@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri' # a module not a gem
+require_relative './post.rb'
 
 class PostScraper
   def initialize(url)
@@ -10,7 +11,10 @@ class PostScraper
     posts = @doc.css('.blog_post')
 
     posts.each do |post|
-      puts post.text
+      this_post = Post.new
+      this_post.content = post.text
+      this_post.file_name = post.attribute('id')
+      puts this_post.file_name
     end
   end
 
