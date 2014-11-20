@@ -20,7 +20,7 @@ class Newspaper
     @posts_array.flatten
     
     # this is untested!!!
-    @posts_array.sort_by { |post| post.file_name }
+    @posts_array.sort_by! { |post| post.file_name }.reverse!
 
     puts "Printing your newspaper..."
 
