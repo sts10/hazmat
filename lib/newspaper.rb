@@ -1,13 +1,4 @@
-require 'nokogiri'
-require 'open-uri' # a module not a gem
-require 'erb'
-require 'date'
-require 'tzinfo'
-require 'pry'
 
-require_relative './post.rb'
-require_relative './post_scraper.rb'
-require_relative '../following.rb'
 
 class Newspaper
   def print
@@ -29,7 +20,7 @@ class Newspaper
       # binding.pry
     end
 
-    template_doc= File.open('../templates/newspaper.html.erb', "r")
+    template_doc= File.open('./templates/newspaper.html.erb', "r")
 
     template = ERB.new(template_doc.read)
     
@@ -43,5 +34,3 @@ class Newspaper
 
 end
 
-my_newspaper = Newspaper.new
-my_newspaper.print
