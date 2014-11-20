@@ -23,8 +23,9 @@ class Newspaper
     template_doc= File.open('./templates/newspaper.html.erb', "r")
 
     template = ERB.new(template_doc.read)
-    
-    File.open('../my_newspaper.html', "w") do |f|
+    puts "about the print"
+
+    File.open('./my_newspaper.html', "w") do |f|
         f.write(
           template.result(binding) # result is an ERB method. `binding` here means we're passing all local variables to the template. 
         )

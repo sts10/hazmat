@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div id="header">
+        <h1>~Username Here If You Want!</h1>
+    </div>
+    <p>This is the Radiation template for your blog. It's written in ERB.</p>
+    <p>Maybe a header menu would go here!</p>
+
+    <p>You can edit it either by using the option in Radiation's main menu, or by finding it in the <code>~/radiation_templates</code> directory.</p>
+    <p>By default file loads CSS from '~/public_html/css/styles.css' but you can change that.</p>
+
+    <!-- Here is where your blog posts get generated. -->
+    <div id="blog">
+        
+            <div class="blog_post" id="2014-11-11T16+20+22-radiation-033">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-11-11T16+20+22-radiation-033"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-11-11T16+20+22-radiation-033"> 4:20pm, Tuesday, Nov 11, 2014</a>
+                </div>
+                <h2 id="radiation-v-033-bash-functions-for-all">Radiation v 0.3.3: BASH Functions for All!</h2>
+
+<p>Two big improvements from v 0.3.0:<br>
+1. New menu option to delete posts <br>
+2. At the suggestion of <a href="http://totallynuclear.club/~bobbyllama/">~bobbyllama</a>, I also gave users a menu option to add a BASH function to their profile to make calling Radiation easier. </p>
+
+<p>Previously I had just put this function in the README and gave some basic instructions for users to put it in their .bash_profile themselves. </p>
+
+<pre><code>function radiation {
+    cwd=$(pwd)
+    cd ~/radiation
+    ruby bin/runner.rb
+    cd $cwd
+}
+</code></pre>
+
+<p>But now, if their .bash_profile doesn&rsquo;t have the two words &ldquo;function radiation&rdquo; in it, they are presented with a new menu option <code>b - Add radiation function to your bash_profile</code>. If they already have those two words next to each other in their bash_profile, the menu item is hidden. </p>
+
+<p>I decided to go classy with this one and did it in one line of Ruby:</p>
+
+<div class="highlighter-coderay">
+<div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">b - add radiation function to your bash_profile</span><span style="color:#710">"</span></span> <span style="color:#080;font-weight:bold">if</span> open(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">../.bash_profile</span><span style="color:#710">'</span></span>).grep(<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">function radiation</span><span style="color:#404">/</span></span>) == []
+</pre></div>
+</div>
+</div>
+<p>When users do select / ask Radiation to add the functon to their bash_profile, Radiation obviously appends it to their profile, so as not to overwrite anything there already. I think that the &lsquo;a&rsquo; option for append will create a .bash_profile if it doesn&rsquo;t exist already? Yeah, pretty sure I tested for the possibility. </p>
+
+<p>Speaking of concise code, <a href="https://github.com/sts10/radiation/blob/master/bin/runner.rb">runner.rb</a> is anything but right now. I&rsquo;ve been able to but some Ruby methods over in <a href="https://github.com/sts10/radiation/blob/master/lib/blog.rb">the blog model</a>, including most of the work for the delete post menu option. But I should try to figure either (a) how to get more of the work from runner to the blog model or (b) find a new object/model to create for some of it (User?). No rush on that right now, as I kind deep down like having one big ass functional file like <code>runner.rb</code>.</p>
+
+<p>In general, though, as Radiation develops it becomes less techincally taxing on users, but more onerous for me or other new developers to come in and improve or alter it. For example, before this update users had to got to the <code>/radiation_posts/</code> directory and actually <code>rm</code> posts to delete them. And if they wanted a better usage experience they had to go edit their <code>~/.bash_profile</code> and enter some code&mdash; things I would have been uncomfortable doing just 10 months ago. Of course they can still do both of these taks in this more manual way, but making it doable from the Radiation main menu made the codebase that much larger and thus more difficult to onboard and to maintain. </p>
+
+<p>Maybe the question is: who&rsquo;s the customer and what&rsquo;s the goal? If they&rsquo;re total newbies to the command line, it&rsquo;s now easier for them to get up and running. But maybe they&rsquo;ll be learning less for the installation process and using Radiation. And if they&rsquo;re moderately-experienced developers, the codebase hasn&rsquo;t grown <em>that</em> much in complexity, and thus I&rsquo;d say the onboarding process hasn&rsquo;t gotten <em>that</em> much more complex since, say, the 0.1.X versions. So in that way I&rsquo;ve been serving both customers with these recent updates. </p>
+
+<p>But is the end game to make the whole process, from installation to publishing, as automatic and easy as possible, with no coding necessary? So more like <a href="http://octopress.org/">Octopress</a>, a framework that has served as an inspiration to me already? That would mean a move toward interchangeables themes and the like, which could be fun. </p>
+
+<p>I don&rsquo;t know, we&rsquo;ll see! Thanks for reading along so far! </p>
+
+
+        
+            
+        
+            </div>
+        
+            <div class="blog_post" id="2014-11-10T18+08+45-radiation-030">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-11-10T18+08+45-radiation-030"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-11-10T18+08+45-radiation-030"> 6:08pm, Monday, Nov 10, 2014</a>
+                </div>
+                <h2 id="radiation-v-030-your-user-settings-are-safe-with-me-baby">Radiation v 0.3.0: Your User Settings Are Safe With Me, Baby</h2>
+
+<p>Some nice small things in this update. The biggest thing is yet another new way of handling user settings. </p>
+
+<p>As you can see in the <a href="https://github.com/sts10/radiation/blob/master/config/environment.rb">v 0.3.0 config/environment</a> I load two settings files:</p>
+
+<div class="highlighter-coderay">
+<div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>require_relative <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">../default_settings.rb</span><span style="color:#710">'</span></span>
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span><span style="color:#080;font-weight:bold">if</span> <span style="color:#036;font-weight:bold">File</span>.exist?(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">../radiation_user_settings.rb</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>  require_relative <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">../../radiation_user_settings.rb</span><span style="color:#710">'</span></span>
+<span class="line-numbers"><a href="#n4" name="n4">4</a></span><span style="color:#080;font-weight:bold">end</span> 
+<span class="line-numbers"><a href="#n5" name="n5">5</a></span>require_relative <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">../lib/time</span><span style="color:#710">'</span></span>
+<span class="line-numbers"><a href="#n6" name="n6">6</a></span>require_relative <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">../lib/post</span><span style="color:#710">'</span></span>
+<span class="line-numbers"><a href="#n7" name="n7">7</a></span>require_relative <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">../lib/blog</span><span style="color:#710">'</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>First we load <code>'../default_settings.rb'</code>, which is within the <code>~/radiation/</code> directory. Since it&rsquo;s in that directory it will get overwritten every time the user re-installs Radiation. But that also means Radaition developers can edit update it with every version update. So basically that&rsquo;s where we&rsquo;ll put our sensible defaults. </p>
+
+<p>Then, if the File exists, we <code>require_relative</code> <code>'../../radiation_user_settings.rb'</code>, a new file that lives outside of the <code>~/radiation</code> directory. Crucially, this file is loaded AFTER the default_settings file. Thus users can overwrite the global variables defined in default_settings and their changes will supercede the default_settings. HOWEVER, if the user fails to define a setting, Radiation will fall back to the default_settings. </p>
+
+<p>Nifty right? I got the concept from Sublime Text, which has a similar default/user setting file system. </p>
+
+<p>Other updates in v 0.3.0 include some sublte but very nice menu flow changes, most of which were suggested to me by <a href="http://totallynuclear.club/~bobbyllama/">~bobbyllama</a>. For example, when users create a new post or edit an existing post, they are asked explicitly whether or not they want to publish the blog at that point. I hope that makes it easier for new users to understand that when a post is created or edited, changes are pushed to the live site until Radiation publishes the blog. </p>
+
+<p>Phew! This beast is coming along. But as always, when I move fast like this there might be some big problems I didn&rsquo;t find in my hasty testing. So if you find weirdness, let me know! </p>
+
+
+        
+            
+        
+            </div>
+        
+            <div class="blog_post" id="2014-11-09T22+46+58-v-022-with-markdown-support">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-11-09T22+46+58-v-022-with-markdown-support"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-11-09T22+46+58-v-022-with-markdown-support">10:46pm, Sunday, Nov 09, 2014</a>
+                </div>
+                <h2 id="radiation-now-with-markdown-support">Radiation, Now With Markdown Support</h2>
+
+<p>Super excited to show off <a href="https://github.com/sts10/radiation">v 0.2.2</a>, which allows users to compose posts in Markdown. </p>
+
+<p>To do this I used the <a href="http://kramdown.gettalong.org/">kramdown library</a>, which I learned about from <a href="http://totallynuclear.club/~crm/">~crm&rsquo;s</a> simple CMS. Basically kramdown takes Markdown and converts it into HTML. I choose to use GitHub flavored markdown by default. I also had to add 4 <code>gsub</code>s on one line to handle smart quotes. But it seems to work now! </p>
+
+<p>Posts created in HTML will still be rendered in HTML and work just fine. And users who wish to contine to write posts in HTML may do so&mdash; v 0.2.2 asks users when creating a new post whether they want to write in HTML or Markdown. So no worries!</p>
+
+<p>Let me know if you see anything weird though! </p>
+
+        
+            
+        
+            </div>
+        
+            <div class="blog_post" id="2014-11-09T21+25+13-one-week-movember">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~erik/2014-11-09T21+25+13-one-week-movember"></a>
+                </div>
+                fuck you
+                   
+                      
+                        <div class="date">
+                            <a href="#2014-11-09T21+25+13-one-week-movember" name="2014-11-09T21+25+13-one-week-movember"> 9:25pm, Sunday, Nov 09, 2014</a>
+                        </div>
+                        <div class="post_body">
+                            <p>I'm officially one week into this year's <a href="http://www.movember.com" target="_blank">Movember</a> mustache. That means for the next few weeks, I'm going to be creeping everyone out and badgering everyone for donations. Sorry about that. But the reason I do this silly thing each year is to raise money for men's health charities and research--primarily, prostate cancer research.</p>
+<p>Prostate cancer has touched many members of my family (sad to say, even more since I raised money last year) and I'd be a fool not to think that it's something I'm likely to deal with personally in the not-so-distant future. So if you have a few bucks and you'd like to support me looking like "someone who has been locked in a mental institution since the 1970's&acirc;&#128;&#157; (not my words), then I'd appreciate a donation. If that's not your thing, that's cool too.</p>
+<p>You can donate any amount here: <a href="http://mobro.co/erikcore" target="_blank">http://mobro.co/erikcore</a></p>
+<p>And now for some mustache inspiration. Here's Frank Zappa. He died from prostate cancer in 1993.</p>
+<img width="100%" src="https://lh4.googleusercontent.com/-_MCvWSmB5Yc/AAAAAAAAAAI/AAAAAAAAABg/U_Rh5PaS_M8/photo.jpg">
+
+                        </div>
+                    
+        
+            </div>
+        
+            <div class="blog_post" id="2014-11-09T14+13+30-radiation-020">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-11-09T14+13+30-radiation-020"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-11-09T14+13+30-radiation-020"> 2:13pm, Sunday, Nov 09, 2014</a>
+                </div>
+                <h2>Radiation v 0.2.0</h2>
+<p>
+So thanks to an <a href="https://github.com/sts10/radiation/issues/3">issue submitted by ~erik about time-zone support</a> I banged out and pushed a pretty solid update to Radiation this afternoon. <a href="https://github.com/sts10/radiation">v 0.2.0</a> has some basic time-zone support and features a new menu option called "edit user settings" which lets users easily edit 4 settings: timezone, blog location, text editor, and blog template location. This file is located at <code>/radiation/user_settings.rb</code>. </p>
+<p>
+So for a user to edit his or her time away from the default of 'America/New_York', the user would install v 0.2.0 of Radiation for time-zone support, then run the main menu. The user would then select 's - edit user settings' and change the first variable. I have been looking for a list of timezone options in this 'America/New_York' 'America/Los_Angeles' format, but all I've found so far that looks like this is this <a href="http://www.timezoneconverter.com/cgi-bin/zoneinfo">silly time-zone converter form</a>. If you find a more official-looking list please let me know. </p>
+<p>
+I'm glad I extracted a few of the basic user variables. Now, folks who aren't comfortable using vim can switch to nano pretty easily. Also if I get more bold in future versions I could remove the <code>user_settings.rb</code> file from the radiation directory, so that when users upgrade to a newer version of Radiation, their user settings would carry over seemlessly, just like their radiation_posts and radiation_templates do now. </p>
+
+        
+            
+        
+            </div>
+        
+            <div class="blog_post" id="2014-11-04T05+06+02-trusting-small-things">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-11-04T05+06+02-trusting-small-things"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-11-04T05+06+02-trusting-small-things"> 5:06am, Tuesday, Nov 04, 2014</a>
+                </div>
+                <h2>Small, Trustworthy Things</h2>
+
+<p>
+I turned 27 this past weekend. Going from 26 to 27 feels like crossing a notable threshold-- a line between the optimistic plateau "mid-twenties" and something sloping toward 30. So far my twenties have been full of starts and stops, haphazardly accepting new responsibilities later than I probably should (paying for my own health insurance, fuck yeah!), and change the only constant. 
+</p>
+<p>
+Last spring was the first time I had ever renewed a lease past a year. If you don't count high school or a college dorm, this is the first time I've lived in the same place for more than 12 months. With all this change and moving from one tiny city apartment to another, I've learned to find comfort in small things that I'll be able to keep for a few years. My world has been full of new challenges, and sometimes it's nice to be able to rely on a few personal objects to be consistent. 
+</p>
+<p>
+I've written about things I've purchased before, once about <a href="https://medium.com/@sts10/10-things-ive-purchased-thanks-to-the-wirecutter-f66719075967">10 things I had bought</a> thanks to recommendations from a website called <a href="http://thewirecutter.com/">The Wirecutter</a>, and another about <a href="https://medium.com/adventures-in-consumer-technology/my-latest-obsession-mechanical-keyboards-ef9e28089327">a mechanical keyboard I researched and ordered</a> (more on that later). In general I dislike spending money, so I try to spend it wisely, doing an abundance of research on a particular item before actually pulling the trigger (that mechanical keyboard post is evidence of this I think).  
+</p>
+<p>
+Having now managed a few periods of earning a disposable income here and there, I've collected a few of these trustworthy items. I have more hopes that the non-electronic ones will last a longer time, but since so much of my life revolves around using technology, it's important to find good electronics too. A quick list: a pair of <a href="http://www.amazon.com/Audio-Technica-ATH-M50-Professional-Monitor-Headphones/dp/B000ULAP4U/ref=sr_1_1?s=electronics&amp;ie=UTF8&amp;qid=1380155114&amp;sr=1-1&amp;keywords=audio+technica+ath-m50">Audio Technica M-50 headphones</a>, a simple wool sweater, an Olympus OM-D EM-5 digital camera, a pair of cordovan boots, that <a href="http://www.amazon.com/Filson-Large-Briefcase-Computer-Desert/dp/B007NVMP0M/ref=sr_1_1?ie=UTF8&amp;qid=1380157004&amp;sr=8-1&amp;keywords=filson+briefcase">Filson bag</a>, this <a href="http://collectedworksco.com/items/waxed-canvas-military-duffle-backpack/">military duffle</a> all qualify. 
+</p>
+<img src="http://i.imgur.com/IxSiT7N.jpg">
+<p>
+My most recent purchase of this type was a $380 computer keyboard called a <a href="http://www.amazon.com/PFU-Hacking-Keyboard-Professional2-English/dp/B008GXQWOG/ref=sr_1_1?ie=UTF8&amp;qid=1415067073&amp;sr=8-1&amp;keywords=happy+hacking+type+s">Happy Hacking Professional-2 Type-S</a> (or HHKB 2 for short). Yes, $380 is an almost comical amount of money to spend on an accessory that comes with my $1,200 MacBook Air. But I hope it will last me many years, so that no matter what computer I plug it in to, the feeling and layout will be exactly the same, and thus familiar. (As proof of the keyboard's durability, here is <a href="http://www.reddit.com/r/MechanicalKeyboards/comments/2kp01c/yep_that_hhkb_spacebar_is_abs/">a Reddit photo post of the HHKB Pro1</a> that's probably <a href="http://www.reddit.com/r/MechanicalKeyboards/comments/2kp01c/yep_that_hhkb_spacebar_is_abs/clnnrze">10 to 18 years old</a> and looks great except for a slight, worn-in dent in the space-bar.) 
+</p>
+<p>
+I'm pretty certain I can type faster, more accurately, and with less fatigue than on the standard Apple keyboard or even the first mechanical keyboard I got, a <a href="http://www.amazon.com/ES-87-Tenkeyless-Mechanical-Keyboard-Cherry/dp/B00KI1ZAHY/ref=sr_1_1?ie=UTF8&amp;qid=1415073735&amp;sr=8-1&amp;keywords=kul+es-87">KUL ES-87</a> thanks to a number of reasons. But it's also just more fun to type on. And that's what I go for with these products-- I want tools to go headfirst in to the great unknown with, to minimize variables and ensure familiarity when I can, and that can sometimes make me just a bit more excited to do things with them. To give me reason to take them out and do work with them. To give me a reason to cheer up when I've been setback by some new, seemingly-daunting challenge.  
+</p>
+<p>  
+I've quoted this Rilke verse before, but it kind of fits right here at the end of this post, and I like the idea of sharing it whenever I can. It's from one of his poems called "The Man Watching." One translation is: 
+</p>
+
+<blockquote>What we fight with is so small, and when we win, it makes us small. What we want is to be defeated, decisively, by successively greater things.</blockquote> 
+
+<p>
+Believing this, I've taken time to choose my small things (and <a href="http://schlinkblog.tumblr.com/post/96430718235/i-never-chose-what-i-wanted-to-do-in-life-because">small decisions</a>) slowly and wisely, so that I can trust them when I go into the fight, win or lose. 
+</p>
+
+        
+            
+        
+            </div>
+        
+            <div class="blog_post" id="2014-11-04T04+40+44-test-post">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-11-04T04+40+44-test-post"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-11-04T04+40+44-test-post"> 4:40am, Tuesday, Nov 04, 2014</a>
+                </div>
+                <h2>Radiation v 0.1.1: Emergency Bug Fix Edition</h2>
+<p>
+Tonight I found out that I had a mistake in the strftime code when creating new posts. ~Erik <a href="https://twitter.com/sts10/status/529492274770894849">was nice enough to help</a> and now v 0.1.1 on GitHub seems to work</p>
+
+<p>The problem was in the post.rb file at approximately line 23. I used %e for the day instead of %d. %e uses a leading space for days less than 9, while %d does use the leading zero. As a result, new posts created between November 1st and November 9th would have had an unexpected space in their file names, which caused at least one problem with the date parsing upon blog publishing.  </p>
+<p>
+At ~erik's recommendation, I just changed the %e to %d, and pushed <a href="https://github.com/sts10/radiation/">v 0.1.1 to GitHub</a>.
+</p>
+<p>
+Should be good now if you just pull down the latest changes from <a href="https://github.com/sts10/radiation/">the repo on Github</a>. Really sorry for the trouble the bug may have caused!
+</p>
+
+        
+            
+        
+            </div>
+        
+            <div class="blog_post" id="2014-11-02T23+22+52-halloween-was-awesome">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~erik/2014-11-02T23+22+52-halloween-was-awesome"></a>
+                </div>
+                fuck you
+                   
+                      
+                        <div class="date">
+                            <a href="#2014-11-02T23+22+52-halloween-was-awesome" name="2014-11-02T23+22+52-halloween-was-awesome">11:22pm, Sunday, Nov 02, 2014</a>
+                        </div>
+                        <div class="post_body">
+                            <img src="https://scontent-b-lga.xx.fbcdn.net/hphotos-xfp1/t31.0-8/10749958_10153346656049358_1095308416553031421_o.jpg" width="100%">
+<p>Halloween was pretty great this year.</p>
+
+                        </div>
+                    
+        
+            </div>
+        
+            <div class="blog_post" id="2014-10-30T01+11+10-rise-of-leslie-vernon-recommendation">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~erik/2014-10-30T01+11+10-rise-of-leslie-vernon-recommendation"></a>
+                </div>
+                fuck you
+                   
+                      
+                        <div class="date">
+                            <a href="#2014-10-30T01+11+10-rise-of-leslie-vernon-recommendation" name="2014-10-30T01+11+10-rise-of-leslie-vernon-recommendation"> 1:11am, Thursday, Oct 30, 2014</a>
+                        </div>
+                        <div class="post_body">
+                            <p>Oh crap, I just realized that I published my last blog post without a horror movie recommendation, so here goes. I'm going to keep with the indie theme I've established with my last two recommendations and go with 2006's <a href="http://www.imdb.com/title/tt0437857/" target="_blank">Behind the Mask: The Rise of Leslie Vernon</a>.</p>
+<p>This one is more of a meta horror comedy along the lines of Shaun of the Dead, et al, but if you ask me, Behind the Mask benefits from being decisive about what kind of movie it's going to be. It's funny, it's self-referential and it pays homage to the classics with references and cameos, but when it comes down to it, it's a movie about a masked killer.</p>
+<p>For the love of god, watch this movie.</p>
+<div class="video-container"><iframe width="420" height="315" src="//www.youtube.com/embed/1tNrvDA_eE8" frameborder="0" allowfullscreen></iframe></div>
+
+                        </div>
+                    
+        
+            </div>
+        
+            <div class="blog_post" id="2014-10-30T00+31+18-user-globe">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~erik/2014-10-30T00+31+18-user-globe"></a>
+                </div>
+                fuck you
+                   
+                      
+                        <div class="date">
+                            <a href="#2014-10-30T00+31+18-user-globe" name="2014-10-30T00+31+18-user-globe">12:31am, Thursday, Oct 30, 2014</a>
+                        </div>
+                        <div class="post_body">
+                            <p>One of the cool things that Paul Ford mentioned in <a href="https://medium.com/message/tilde-club-i-had-a-couple-drinks-and-woke-up-with-1-000-nerds-a8904f0a2ebf" target="_blank">his Medium post about tilde.club</a> was how someone built a geographical visualization of tilde.club user logins. I had some free time tonight, so I put together <a href="http://totallynuclear.club/~erik/tncglobe/" target="_blank">this geographical visualization of totallynuclear.club user logins</a>. It's all approximate and it updates very slowly, but still. It's like space! Zoome in! Zoom out! Whuddup, Newfoundland! How you doin', Moscow City!</p>
+
+                        </div>
+                    
+        
+            </div>
+        
+            <div class="blog_post" id="2014-10-29T00+42+04-tilde-club-favorites-so-far">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-10-29T00+42+04-tilde-club-favorites-so-far"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-10-29T00+42+04-tilde-club-favorites-so-far">12:42am, Wednesday, Oct 29, 2014</a>
+                </div>
+                <h2>Favorite Tilde Sites and Things So Far</h2>
+<p>OK so it's one thing to work on code in isolation, but the whole point of totally nuclear club and tilde club is to find others stretching their wings in this new-or-wait-actually-old but definitely unique space. People who I probably don't follow on other social networks and almost most certainly don't know in real life.</p>
+
+<p>Of course what's interesting about these "clubs" or servers is that it is (purposefully) difficult both to discover and to regularly check them. By difficult I don't meant that there are passwords or errors-- I mean that there isn't a "follow" system or RSS feeds or even permalinks in some cases.</p>
+
+<p>Rather delightfully, this leads people to publish (and hopefully keep up-to-date) very simple but also very useful standalone pages, like this list of <a href="http://tilde.club/~pfhawkins/othertildes.html">Other Tildes</a>. Or this page dedicated to <a href="http://tilde.club/~joeld/tildelore.html">"Tilde Club Lore"</a>. And even my linking to them here makes this page and thus my blog a repository of information both for others to discover, and a place where those discoverers can come back to to find these links. Otherwise they can go "dark" or just vanish all together.</p>
+
+<p>Note that the only way I've been keeping track of the growing tilde-verse is with a simple bookmarks folder in the bookmark bar of my Google Chrome that's simply called "tilde club stuff." Below are some of my favorite pages I've bookmarked so far.</p>
+
+<p>So far my favorite actual site is <a href="http://tilde.club/~droob/">~droob</a> of Tilde Club. I'm not sure of Droob's real name or gender, but he or she is currently using their tilde site to blog about what I'd summarize as communications concepts and how they play out on the internet. Like how tools and analytics can be a <a href="http://tilde.club/~droob/index.html#bummer-machine">real bummer</a>, <a href="http://tilde.club/~droob/index.html#alcoves">insights from architecture</a>, an interesting list of <a href="http://tilde.club/~droob/index.html#negative-space">degrees of publishing</a>, and a <a href="http://tilde.club/~droob/#books">reading list</a>. Seems like a pretty smart person. </p>
+
+<p>As for other sites I've bookmarked, there's 
+</p>
+<ul>
+    <li>Tidle Club's creator <a href="http://tilde.club/~ford/">~ford</a>
+</li>
+    <li>totally nuclear creator <a href="http://totallynuclear.club/~erik/">~erik</a>
+</li> 
+    <li>
+<a href="http://totallynuclear.club/~crm/">~crm</a> (whose minimalistic Ruby CMS is super cool)</li>
+    <li>My co-worker <a href="http://www.tilde.club/~summeranne/">~summeranne</a>, who has a nice recent post about work (that I merrily cannot link directly to)</li>
+    <li>
+<a href="http://tilde.club/~choire/">~choire</a> is as  silly as you'd think.</li>
+    <li>One I just found tonight is tilde club's <a href="http://tilde.club/~_/index.html">~_</a>, who seems to be pretty prolific, and has a nice, annotated blog roll of other tildes on the left side of his blog (more tildes to discover!)</li>
+</ul>
+There are some others but they haven't been updated in some time.
+<p>I think that's where I'll leave you for now. I obviously don't have comments on this blog (yet?), so if you have something to say about this (like how YOU handle tilde discovery and regular checking) you can email me at ~schlink (from your totally nuclear email only, apparently). Heartsies.</p>
+
+        
+            
+        
+            </div>
+        
+            <div class="blog_post" id="2014-10-28T23+15+02-rad-stuff-ive-found-and-second-update">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~erik/2014-10-28T23+15+02-rad-stuff-ive-found-and-second-update"></a>
+                </div>
+                fuck you
+                   
+                      
+                        <div class="date">
+                            <a href="#2014-10-28T23+15+02-rad-stuff-ive-found-and-second-update" name="2014-10-28T23+15+02-rad-stuff-ive-found-and-second-update">11:15pm, Tuesday, Oct 28, 2014</a>
+                        </div>
+                        <div class="post_body">
+                            <p>I've been so busy that I haven't had much time to do anything beyond approve new accounts and perform the weekly server backups. I have been keeping an eye on the <a href="http://totallynuclear.club/~erik/totallynuclear.24h.html" target="_blank">recently updated pages</a> list and by the looks of it, I'm one of the few people who hasn't been busy building cool stuff.</p>
+<p>A news server should be up and running this week.</p>
+<p>It's cool to see people starting new blogs and updating them regularly. It makes this whole server experiment feel more permanent, like we're all settling in for something more long term that will continue to grow, become a better representation of its members. I hope the blogs (and CMS's powering them) continue to pop up and flourish. From here on out I'll be thinking of this as my primary blog.</p>
+<p>There are so many great blogs developing--some personal, some providing a meta commentary on the tilde server experience and some doing something that I can't quite wrap my brain around but that I can't stop reading every day. This is anything but a comprehensive list (maybe there is some way of generating that?) but some honorable mentions are <a href="http://totallynuclear.club/~schlink/" target="_blank">schlink</a>, <a href="http://totallynuclear.club/~herrk/" target="_blank">herrk</a>, <a href="http://totallynuclear.club/~brotherly/" target="_blank">brotherly</a>, <a href="http://totallynuclear.club/~metraboy/" target="_blank">metraboy</a> and <a href="http://totallynuclear.club/~pariah/" target="_blank">pariah</a>. There are so many more to be discovered, so poke around.</p>
+<p>Have you seen maze's <a href="http://totallynuclear.club/~maze/radio.html" target="_blank">Radio Activity</a>? It's a "hyper-democratic jukebox" that every member on the server can add songs to. I am so jealous that I didn't have this idea. I added a couple songs earlier today and so should you. Let's just pummel each other with our respective musical tastes.</p>
+<p>Because it's still October, I've got a horror movie recommendation for you. This time it's <a href="http://www.imdb.com/title/tt1226681/" target="_blank">Pontypool</a>. It's kind of a zombie movie only in this one, the "virus" travels through sound. When this movie came out in 2008, it slipped in under the radar, but I managed to catch it at a press screening and fell in love with it. To me, it fits into a very specific subgenre where the world in which the movie occurs is supposed to be reality--only slightly off. There's something sinister there already. A saturation, a hyperfocus on details. I guess it could also be that it was filmed in Canada. Anyway, it's streaming on Netflix. Get after it!</p>
+<div class="video-container"><iframe width="560" height="315" src="//www.youtube.com/embed/Ehq2a8lum_4" frameborder="0" allowfullscreen></iframe></div>  
+
+
+                        </div>
+                    
+        
+            </div>
+        
+            <div class="blog_post" id="2014-10-21T20+27+04-v-010-a-working-product">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-10-21T20+27+04-v-010-a-working-product"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-10-21T20+27+04-v-010-a-working-product"> 8:27pm, Tuesday, Oct 21, 2014</a>
+                </div>
+                <h2>Radiation v 0.1.0: A Working Product</h2>
+<p>
+It may not be the prettiest code I've ever written, and the installation process may still be unsatisfactory and clunky, but <a href="https://github.com/sts10/radiation">Radiation v 0.1.0</a> works. (Unlike the complex and doomed version 0.1.1 which I will skip over and we will never discuss again).</p>
+<p>In fact, Totally Nuclear host <a href="http://totallynuclear.club/~erik/">~erik</a> is <a href="https://twitter.com/erikprice/status/524183448513437697">using it</a> on his homepage! I'm so flattered. </p>
+
+<p>
+Since it seems to be pretty stable and customizable, I think I'm going to let it chill at v 0.1.0 for a while (pending any bug fixes or improvements that I work out or get submitted to me via a pull request or Github issue). 
+The one feature I might tinker with adding would be to allow users to write posts in Markdown (and use a Ruby gem to convert it to HTML, but I've never done that and am not sure how difficult it will be). Hopefully more tilde people will use this current version and have the pleasure of writing out old-school HTML in the terminal though! 
+</p>
+<p>This also frees up the time I spent working on it and blogging about it here to explore totally nuclear and other tilde clubs that I've found so far, plus find new ones. Cuz that's what these things are all about, right? Old school Internet communities? Excited to see what I find and can report back to you here.</p> 
+
+        
+            
+        
+            </div>
+        
+            <div class="blog_post" id="2014-10-19T21+45+35-one-week-in">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~erik/2014-10-19T21+45+35-one-week-in"></a>
+                </div>
+                fuck you
+                   
+                      
+                        <div class="date">
+                            <a href="#2014-10-19T21+45+35-one-week-in" name="2014-10-19T21+45+35-one-week-in"> 9:45pm, Sunday, Oct 19, 2014</a>
+                        </div>
+                        <div class="post_body">
+                            <a href="http://totallynuclear.club">totallynuclear.club</a> has been live for a week and a few hours! In that time, we've grown to 143 members. Crazy! So many people are building cool projects and making me wish I had more time to work on my own. Have you seen <a href="http://totallynuclear.club/~rogual/">rogual's game</a>?! I'll be building my first room as soon as I get done with this post.<br>
+<br>
+Local IRC went live a couple days ago, so if you're logged into totallynuclear.club, you can begin chatting using the program IRSSI. To see what that's all about, just log into your totallynuclear.club account and then enter the command:<br>
+<br>
+<pre>irssi --connect irc.totallynuclear.club</pre>
+<br>
+At that point, you should be connected to the server. To join the general server chat, type:<br>
+<br>
+<pre>/join #totallynuclear</pre>
+<br>
+And then get your chitchat on.<br>
+<br>
+My lovely girlfriend <a href="http://totallynuclear.club/~mayafish">mayafish</a> created a list of interesting projects happening on the server, which she'll be updating <a href="http://totallynuclear.club/~mayafish/coolstuff.html">here</a>.<br>
+<br>
+I'll be updating the <a href="http://totallynuclear.club/~faq">FAQ</a> as things develop, but check back here on my weblog for news related to the server or other, less relevant stuff I might ramble about. Like, oh hey, it's October. Looking for a horror movie to watch? I hope so, because I'm going to end every weblog post this month with a recommendation. Today's recommendation: <a href="http://www.imdb.com/title/tt1464580/">Stake Land</a>. <br>
+<br>
+<div class="video-container"><iframe width="560" height="315" src="//www.youtube.com/embed/zNC2HwAaWWE" frameborder="0" allowfullscreen></iframe></div>
+
+                        </div>
+                    
+        
+            </div>
+        
+            <div class="blog_post" id="2014-10-16T02+58+27-radiation-0-1-0-a-work-in-progress">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-10-16T02+58+27-radiation-0-1-0-a-work-in-progress"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-10-16T02+58+27-radiation-0-1-0-a-work-in-progress"> 2:58am, Thursday, Oct 16, 2014</a>
+                </div>
+                <h2>Radiation 0.1.1: A Work in Progress</h2>
+<p>Tonight I tried to make a considerably large leap forward with <a href="http://github.com/sts10/radiation">Radiation</a>. The big thing I was attempting was to try to simplify the installation process by using the bash `ln` command, rather than forcing users to paste a multi-line function into their .bash_profile. I gave it a pretty good shot, and at one point I was so confident I merged my branch with master and pushed it up (sorry if anyone pulled down the doomed version 0.1.1 that was up for a bit a few hours ago). But I ran into problems with relative vs. absolute paths. I thought if I made the assumption that everyone install the radiation directory in the `~` directory, I could just hard-code everything with that, but I just couldn't get it working right. </p>
+<p>I may give it another shot tomorrow. But at this point v 0.0.7 is a pretty solid build, and I think people can really save time and do more using it than not. It's also a decent code base for expanding upon. I hope it's clear to developers approaching it for the first time. </p>
+<p>If you do want to see what I  was going for in v 0.1.1, you can see <a href="https://github.com/sts10/radiation/tree/0_1_1">that branch up on the repo</a>. I need to take a day or two break from it for now though.</p>
+<p>Today's big lesson was that when you're sharing a program with a community who may rely on it for daily use, you have to be really careful that the default braanch (in this case I've kept it as master) is a working build at all times. Or at least you feel shitty when that branch is broken even for a few minutes-- imagining that one or two new users could be eagerly cloning your repo and following your broken installation instructions right at that moment. Thankfully Git is awesome and I was moderately quick in reverting back to a good commit of v 0.0.7. Maybe I'll have better luck later this week.</p> 
+
+        
+            
+        
+            </div>
+        
+            <div class="blog_post" id="2014-10-14T00+14+16-radiation0-0-5">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-10-14T00+14+16-radiation0-0-5"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-10-14T00+14+16-radiation0-0-5">12:14am, Tuesday, Oct 14, 2014</a>
+                </div>
+                <h2>Radiation v 0.0.5</h2>
+<p>
+    Just pushed <a href="https://github.com/sts10/radiation">Radiation v 0.0.5</a> up to GitHub. Knocked 3 big things off my to do list tonight: (1) Drastically simplified the number and semantics of the Ruby models, (2) fixed a creation time bug, and (3) took the blog template ERB file out of the radiation directory, much as I did with the posts directory yesterday. Due to these changes I also changed the installation process a bit. I hope it is easier for both new and upgrading users.
+</p>
+<p>
+    I think 0.0.5 is an OK product. No permalinks or drafts or anything fancy, and I'm definitely still not satisfied with the installation process, but it's on its way. Oh, a decent goal for tomorrow or Wednesday would be a nifty little menu for editing previously published posts. There's always  more to do.
+    </p>
+    <p>
+    I did take a minute to browse some other totallynuclear sites this afternoon (that's what this is about, right!) and I found the <a href="http://totallynuclear.club/~crm/">~crm</a> totally wrote his or her own (much simpler) CMS using Ruby and ERB. In fact, it's only one file! Kudos! I haven't pasted it into an editor and tried it yet, but it certainly looks like it gets the job done.</p>
+    <p>
+    OK well that's about it for now. Let's hope this post publishes as intended!
+    </p> 
+
+        
+            
+        
+            </div>
+        
+            <div class="blog_post" id="2014-10-12T22+01+07-do-over">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-10-12T22+01+07-do-over"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-10-12T22+01+07-do-over">10:01pm, Sunday, Oct 12, 2014</a>
+                </div>
+                <h2>Do Over</h2>
+<p>I stumbled on Paul Ford's <a href="https://medium.com/message/tilde-club-i-had-a-couple-drinks-and-woke-up-with-1-000-nerds-a8904f0a2ebf">Medium post</a> about this <i>thing</i> he made called Tilde Club sometime last week. On Thursday night I got a minute to sit down and read it all the way through and I realized this might be something <strong>important</strong>. 
+</p>
+<blockquote class="twitter-tweet" data-cards="hidden" lang="en">
+<p>OK I just read this all the way through and now realize that <a href="http://t.co/ivkGDNiBtA">http://t.co/ivkGDNiBtA</a> is incredibly important <a href="https://t.co/AbCpqKqqaZ">https://t.co/AbCpqKqqaZ</a></p>&mdash; Sam Schlinkert (@sts10) <a href="https://twitter.com/sts10/status/520352109121003520">October 9, 2014</a>
+</blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>
+I see now that it doesn't have to be confined to some sort of nostalgia trip for a bunch of 40-year-old blogging pioneers (although it might be just that for some folks). It might be an opportunity to get a do over with the Internet, but go back armed with the knowledge of what has worked and what hasn't over the relatively short history of the Internet. 
+</p>
+<p>
+    We're two paragraphs in now so, by convention, it's time for me to discuss my first encounters with the Internet. I was born in 1987, so my first surfride on the 'net was on an AOL account, via a dial-up modem. I mostly read Cartoon Network message boards I think. One funny memory was visiting www.whitehouse.com for a research project and finding a ton of porn (this was apparently during the Monica Lewinsky scandal). </p>
+<p>
+Later we used AIM. Our tiny buddy profiles were our homepages. I was in high school when Facebook blew up (I was a member of the few classes who had to wait for a college .edu email address to register). Facebook was the first "social network" I was involved in. Then Twitter came along midway through college, and was significantly bolstered by my getting my first iPhone senior year. Oh and Tumblr was big sneior year-- we had a fun group one called <a href="http://hashtaghashtag.tumblr.com">The ##</a> that we adored.
+</p>
+<p>
+Out of school I eventually figured out that I could get paid to do this, so I've been involved with social media professionally ever since (currently I'm an Associate Social Media Editor at BuzzFeed News). 
+    </p>
+    <p>
+    Anyway, I joined totallynuclear.club today because I want to try to re-build the Internet better, from the command line. Today I built <a href="https://github.com/sts10/radiation">a basic, crude CMS</a>. And I've already gotten offers from totallynuclear people-- strangers I have never met of course-- to help with it. Who knows what we'll have made by next weekend. When a friend asked if there was anyway to keep up with this tilde club posts, like via RSS or something, I said no, because no one's built that yet.
+    </p> 
+
+        
+            
+        
+            </div>
+        
+            <div class="blog_post" id="2014-10-12T17+22+12-hello_world">   
+              
+                <div class="date">
+                  <a href="#http://totallynuclear.club/~schlink/2014-10-12T17+22+12-hello_world"></a>
+                </div>
+                fuck you
+                   
+              
+                <div class="date">
+                    <a href="#2014-10-12T17+22+12-hello_world"> 5:22pm, Sunday, Oct 12, 2014</a>
+                </div>
+                <h2>Hello World, From Radiation v 0.0.2!</h2>
+
+<p>Hello world! This is Sam's totallynuclear blog!</p>
+
+<p>I should probably write down how I logged in! First I think I entered `ssh schlink@totallynuclear.club` into my Terminal. Then I entered my password (which I've since changed to something super secret). That might have been it?</p>
+
+<p>I spent the afternoon working on a very simple CMS for totallynuclear blogs. At some point I decided on the name Radiation, as it stays with the nuclear theme of totallynuclear. <a href="https://github.com/sts10/radiation">Here's the public GitHub Repo</a>. It seems to be working well so far (I'm using it right now!).
+</p>
+<p>
+The README has decent installation instructions, but let me know if you have any trouble. I wrote it in Ruby and ERB, so if that's your jam please let me know if you have any suggestion (I'm <a href="http://www.twitter.com/sts10">@sts10</a> on Twitter). </p>
+
+        
+            
+        
+            </div>
+        
+    </div>
+
+    <!-- You could put a footer down here, after all of you blog posts -->
+  </body>
+</html>
