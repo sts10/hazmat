@@ -15,8 +15,13 @@ class PostScraper
     posts.each do |post|
       this_post = Post.new
       this_post.content = post.inner_html # was .text
-      this_post.file_name = post.attribute('id').value
       this_post.user_name = @url.to_s.partition('~').last.gsub('/','')
+
+      if post.attribute('id') && post.attribute('id').value
+        this_post.file_name = post.attribute('id').value
+      else
+        this_post.file_name = post.css('.date a').attribute('name').value
+      end
 
       puts this_post.file_name
       post_objects << this_post

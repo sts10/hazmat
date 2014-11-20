@@ -1,0 +1,42 @@
+h1 {
+    font-family: Helvetica;
+}
+#header, #blog_header, #footer {
+    width: 600px;
+    margin: 40px auto;
+}
+
+#blog {
+    width: 600px;
+    margin: 40px auto;
+    font-family: Georgia;
+}
+#blog h2 {
+    margin-top: 13px;
+}
+#blog .date {
+    padding-top:15px;
+}
+#blog .date a {
+    color: #777;
+    font-weight: bold;
+    text-decoration: none;
+    font-style:italic;
+    font-size: 16px;
+
+}
+#blog p, #blog blockquote {
+    font-size: 18px;
+    line-height: 1.5em;
+    color: #202020;
+    margin-bottom: 26px;
+}
+#blog blockquote {
+    font-style: italic;
+}
+.blog_post img {
+    width: 600px;
+}
+.blog_post {
+    margin-bottom:50px;
+}
