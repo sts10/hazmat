@@ -16,10 +16,11 @@ class Newspaper
     $following.each do |followed_url|
       this_blog = PostScraper.new(followed_url)
       @posts_array = @posts_array + this_blog.scrape_posts
-
-      
     end
     @posts_array.flatten
+    
+    # sort @posts_array by .time_stamp
+
     puts "Printing your newspaper..."
 
     @posts_array.each do |post| 
