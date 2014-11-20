@@ -1,22 +1,35 @@
-# Hazmat
+# Hazmat v 0.0.3
 
-## A Reader for Radiation Blogs
+Hazmat is a reader for Radiation blogs
 
-#### To Do
+### What Hazmat Does
 
- 
+Given that the HTML product of most Radiation blogs follow the same pattern, I thought I'd make a simple web scraper that could pull blog posts from a set of Radiation blogs and order them in reverse chronological order for the reader. 
+
+VERY MUCH IN DEVELOPMENT!
+
+### How To Use v 0.0.3
+
+Clone down the directory locally.
+2. `cd` into directory. 
+3. Run `gem install nokogiri`.
+4. Now run `ruby bin/binner`
+
+Your default browser should open to a new webpage with blog posts from ~schlink and ~erik.
+
+
+The blogs you follow are configurable in `following.rb`
+
+
+### To Do
 - figure out what to do about relative paths in ~erik's blog (probably doable!)
- 
 - better error handling when you enter a URL that is not radiation approved
 
-
-#### Bigger Things to Add
+### Bigger Things to Add
 - The CLI component. One choice to add a new following-- check right then if the URL is hazmat compliant
 - Clean up  file structure
 - Consider adding a default style sheet (does Radiation have this)
-- Ability to, by default, render first x lines. Then create a permalink: 
-`<a href="<%= post.perma_url %>">Read More</a>`
-
+- Ability to, by default, render first x lines. Then give user a permalink to full post.
 - Make scraper super robust / error handling
 - Write a test to quickly and easily find out if a follow request blog is Hazmat compliant
 - Change Radiation default template to wrap post content in a new, separate div (see ~erik's blog as example)
