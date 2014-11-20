@@ -14,7 +14,13 @@ class PostScraper
 
     posts.each do |post|
       this_post = Post.new
-      this_post.content = post.inner_html # was .text
+      this_post.content = post.inner_html
+
+      this_post.content = this_post.content.gsub("“", "&ldquo;").gsub("”", "&rdquo;").gsub("‘", "&lsquo;").gsub("’", "&rsquo;").gsub("–", "&mdash;") #.gsub("this", "smelly").gsub("complex", "HARRY")
+
+      this_post.content = this_post.content.gsub("&acirc;&#128;&#156;", '"').gsub("&acirc;&#128;&#153;", "'")
+      # binding.pry
+
       this_post.user_name = @url.to_s.partition('~').last.gsub('/','')
 
       if post.attribute('id') && post.attribute('id').value
