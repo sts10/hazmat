@@ -18,6 +18,8 @@
         <% @posts_array.each do |post| %>
             <div class="blog_post" id="<%= post.file_name %>">   
                 Post by <%= post.user_name %>
+                <br>
+                <a href="<%= post.perma_url %>">Permalink</a>
                 <div>
            
                 <%= post.content %>
