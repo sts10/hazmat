@@ -1,0 +1,16 @@
+# Hazmat
+
+## A Reader for Radiation Blogs
+
+#### To Do
+
+- Render smart characters in ~erik's blog posts better
+- figure out what to do about relative paths in ~erik's blog (probably doable!)
+- move the runner logic into a runner file (out of newspaper model)
+- better error handling when you enter a URL that is not radiation approved
+
+
+#### Bigger Things to Add
+- The CLI component
+- mention notifications! 
+
