@@ -1,4 +1,4 @@
-# Hazmat v 0.0.5
+# Hazmat v 0.0.6
 
 Hazmat is a reader for Radiation blogs
 
@@ -8,7 +8,7 @@ Given that the HTML product of most Radiation blogs follow the same pattern, I t
 
 VERY MUCH IN DEVELOPMENT!
 
-### How To Use v 0.0.4
+### How To Use v 0.0.X
 
 1. Clone down the directory locally.
 2. `cd` into directory. 
@@ -34,6 +34,15 @@ The blogs you follow are configurable in `following.rb`
 - Write a test to quickly and easily find out if a follow request blog is Hazmat compliant
 - Change Radiation default template to wrap post content in a new, separate div (see ~erik's blog as example)
 - mention notifications! 
+
+### CHANGLEOG
+
+#### v 0.0.6 
+
+Now following 7 Radiation with minimal problems. Put in fixes for youtube iframes and improved the handling of images with relative sources. 
+
+Still pretty fragile! Haven't tried putting http://google.com into the following yet!
+
 
 ### Notes on Alternative Methods to Find and Replace Relative Paths to Absolute Paths 
 
