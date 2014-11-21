@@ -5,7 +5,12 @@ class Newspaper
 
     $following.each do |followed_url|
       this_blog = FollowedBlog.new(followed_url)
-      @posts_array = @posts_array + this_blog.scrape_posts
+      scraped_posts = this_blog.scrape_posts
+      if scraped_posts
+        @posts_array = @posts_array + this_blog.scrape_posts
+      else
+        puts "Could not find Radiation-compatible blog posts at #{followed_url}"
+      end
     end
     @posts_array.flatten
     

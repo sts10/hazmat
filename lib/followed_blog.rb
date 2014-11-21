@@ -81,5 +81,14 @@ class FollowedBlog
     post_objects
   end
 
+  def compatible?
+    if @doc.css('.blog_post').any? || @doc.css('.post').any?
+      puts "check_url returned true"
+      return true
+    else 
+      puts "check_url returned false"
+      return false
+    end
+  end
 end 
 
