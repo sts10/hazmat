@@ -4,7 +4,7 @@ require 'erb'
 # require 'date'
 # require 'tzinfo'
 require 'uri'
-# require 'pry'
+require 'pry'
 
 require_relative '../lib/post'
 require_relative '../lib/followed_blog'
