@@ -1,6 +1,3 @@
-# require 'nokogiri'
-# require 'open-uri' # a module not a gem
-# require_relative './post.rb'
 
 class FollowedBlog
   def initialize(url)

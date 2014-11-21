@@ -1,5 +1,4 @@
 
-
 class Newspaper
   def print
     @posts_array = []
@@ -10,14 +9,12 @@ class Newspaper
     end
     @posts_array.flatten
     
-    # this is untested!!!
     @posts_array.sort_by! { |post| post.file_name }.reverse!
 
     puts "Printing your newspaper..."
 
     @posts_array.each do |post| 
       puts post.file_name 
-      # binding.pry
     end
 
     template_doc= File.open('./templates/newspaper.html.erb', "r")
