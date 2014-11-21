@@ -12,8 +12,9 @@ VERY MUCH IN DEVELOPMENT!
 
 1. Clone down the directory locally.
 2. `cd` into directory. 
-3. Run `gem install nokogiri`.
-4. Now run `ruby bin/runner.rb`
+3. Run `gem install nokogiri`
+5. Run `gem install mechanize`
+6. Now run `ruby bin/runner.rb`
 
 Your default browser should open to a new webpage with blog posts from ~schlink and ~erik.
 
