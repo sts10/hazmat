@@ -23,7 +23,7 @@ The blogs you follow are configurable in `following.rb`
 
 
 ### To Do
-- figure out what to do about relative paths in the followed blogs 
+- More testing on converting 
     + Idea 1: use 'uri' and this method from SO to find and replace the relative paths with absolute paths: http://stackoverflow.com/questions/25525364/ruby-opening-absolute-url-from-relative
     
     + Idea 2: Use the mechanize gem to systematically find all the relative paths. I am not sure if, in this case, mechanize will replace nokogiri as our scraper, or the two will work hand-in-hand somehow (we need nokogiri's CSS targeting): http://blog.biasedwalk.com/2014/03/making-relative-links-absolute-with.html
