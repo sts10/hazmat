@@ -7,6 +7,6 @@ require 'uri'
 # require 'pry'
 
 require_relative '../lib/post'
-require_relative '../lib/post_scraper'
+require_relative '../lib/followed_blog'
 require_relative '../lib/newspaper'
 require_relative '../following'

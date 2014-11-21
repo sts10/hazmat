@@ -5,7 +5,7 @@ class Newspaper
     @posts_array = []
 
     $following.each do |followed_url|
-      this_blog = PostScraper.new(followed_url)
+      this_blog = FollowedBlog.new(followed_url)
       @posts_array = @posts_array + this_blog.scrape_posts
     end
     @posts_array.flatten

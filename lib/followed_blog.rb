@@ -1,8 +1,8 @@
-require 'nokogiri'
-require 'open-uri' # a module not a gem
-require_relative './post.rb'
+# require 'nokogiri'
+# require 'open-uri' # a module not a gem
+# require_relative './post.rb'
 
-class PostScraper
+class FollowedBlog
   def initialize(url)
     @url = url
     @doc = Nokogiri::HTML(open(url))
@@ -59,7 +59,3 @@ class PostScraper
 
 end 
 
-
-# my_blog = PostScraper.new('http://totallynuclear.club/~schlink/')
-
-# my_blog.scrape_posts
