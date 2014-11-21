@@ -1,8 +1,8 @@
 require 'nokogiri'
 require 'open-uri' # a module not a gem
 require 'erb'
-require 'date'
-require 'tzinfo'
+# require 'date'
+# require 'tzinfo'
 require 'uri'
 # require 'pry'
 

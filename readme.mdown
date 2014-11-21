@@ -13,8 +13,7 @@ VERY MUCH IN DEVELOPMENT!
 1. Clone down the directory locally.
 2. `cd` into directory. 
 3. Run `gem install nokogiri`
-5. Run `gem install mechanize`
-6. Now run `ruby bin/runner.rb`
+4. Now run `ruby bin/runner.rb`
 
 Your default browser should open to a new webpage with blog posts from ~schlink and ~erik.
 
@@ -23,14 +22,8 @@ The blogs you follow are configurable in `following.rb`
 
 
 ### To Do
-- More testing on converting 
-    + Idea 1: use 'uri' and this method from SO to find and replace the relative paths with absolute paths: http://stackoverflow.com/questions/25525364/ruby-opening-absolute-url-from-relative
-    
-    + Idea 2: Use the mechanize gem to systematically find all the relative paths. I am not sure if, in this case, mechanize will replace nokogiri as our scraper, or the two will work hand-in-hand somehow (we need nokogiri's CSS targeting): http://blog.biasedwalk.com/2014/03/making-relative-links-absolute-with.html
-
-    + use uri for joining URLs probably: http://stackoverflow.com/questions/4861517/getting-the-absolute-url-when-extracting-links 
-
-- better error handling when you enter a URL that is not radiation approved
+- More testing on converting relative paths to absolute paths (especially for images)
+- Better error handling when you enter a URL that is not radiation approved
 
 ### Bigger Things to Add
 - The CLI component. One choice to add a new following-- check right then if the URL is hazmat compliant
@@ -41,3 +34,11 @@ The blogs you follow are configurable in `following.rb`
 - Write a test to quickly and easily find out if a follow request blog is Hazmat compliant
 - Change Radiation default template to wrap post content in a new, separate div (see ~erik's blog as example)
 - mention notifications! 
+
+### Notes on Alternative Methods to Find and Replace Relative Paths to Absolute Paths 
+
+- Idea 1: use 'uri' and this method from SO to find and replace the relative paths with absolute paths: http://stackoverflow.com/questions/25525364/ruby-opening-absolute-url-from-relative
+
+- Idea 2: Use the mechanize gem to systematically find all the relative paths. I am not sure if, in this case, mechanize will replace nokogiri as our scraper, or the two will work hand-in-hand somehow (we need nokogiri's CSS targeting): http://blog.biasedwalk.com/2014/03/making-relative-links-absolute-with.html
+
+- use uri for joining URLs probably: http://stackoverflow.com/questions/4861517/getting-the-absolute-url-when-extracting-links 
