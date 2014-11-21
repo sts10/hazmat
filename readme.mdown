@@ -1,4 +1,4 @@
-# Hazmat v 0.0.3
+# Hazmat v 0.0.4
 
 Hazmat is a reader for Radiation blogs
 
@@ -8,7 +8,7 @@ Given that the HTML product of most Radiation blogs follow the same pattern, I t
 
 VERY MUCH IN DEVELOPMENT!
 
-### How To Use v 0.0.3
+### How To Use v 0.0.4
 
 1. Clone down the directory locally.
 2. `cd` into directory. 
