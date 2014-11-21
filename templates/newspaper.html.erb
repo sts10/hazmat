@@ -17,16 +17,16 @@
     <div id="blog">
         <% @posts_array.each do |post| %>
             <div class="blog_post" id="<%= post.file_name %>">   
-                Post by <%= post.user_name %>
+                Post by <a href="<%= post.base_url %>">~<%= post.user_name %></a>
                 <br>
                 <a href="<%= post.perma_url %>">Permalink</a>
                 <div>
            
                 <%= post.content %>
                 </div>
-                <div class="date">
-                  <a href="<%= post.perma_url %>">Read More</a>
-                </div>
+               <!--  <div class="date">
+                  <a href="<%#= post.perma_url %>">Read More</a>
+                </div> -->
             </div>
         <% end %>
     </div>

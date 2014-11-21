@@ -58,7 +58,7 @@ class FollowedBlog
       # this_post.content = this_post.content[0..1800]
 
       this_post.base_url = @url.to_s
-      this_post.user_name = @url.to_s.partition('~').last.gsub('/','')
+      this_post.user_name = @url.to_s.partition('~').last.partition('/').first.gsub('/','')
 
       # do our best to find the file name in the HTML of the post
 
