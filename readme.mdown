@@ -23,6 +23,11 @@ The blogs you follow are configurable in `following.rb`
 
 ### To Do
 - figure out what to do about relative paths in ~erik's blog (probably doable!)
+    + use uri for joining URLs probably: 
+    +   http://stackoverflow.com/questions/4861517/getting-the-absolute-url-when-extracting-links
+    +   http://stackoverflow.com/questions/25525364/ruby-opening-absolute-url-from-relative
+    +   http://blog.biasedwalk.com/2014/03/making-relative-links-absolute-with.html
+    +   
 - better error handling when you enter a URL that is not radiation approved
 
 ### Bigger Things to Add
