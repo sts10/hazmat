@@ -13,17 +13,25 @@ $(document).ready(function(){
 
         // code look-up: http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 
-        case 38: // up
+        // case 38: // up
         case 75: // k
         case 80: // p
           Navigate(-1);
         break;
 
-        case 40: // down
+        // case 40: // down
         case 74: // j
         case 78: // n
-          console.log('down')
+          console.log('down');
           Navigate(1);
+        break;
+
+        case 77: // m
+          scrollPost(-1);
+        break;
+
+        case 188: // , 
+          scrollPost(1);
         break;
 
         // case 13: // enter/return/carriage return
@@ -56,10 +64,23 @@ $(document).ready(function(){
           scrollTop: $(".selected_post").offset().top - 100
       }, 20);
 
+      // put the selected post in focus
+      $('.selected_post').focus();
+
       // set global variable addressVariable to the address of the selected post
       // addressValue = $(".selected_post").attr("href");
   };
 
+
+  var scrollPost = function(diff) {
+    if (diff == -1) { // m down
+      $('.selected_post').animate({
+        // scrollTop: 10;
+        // console.log('you hit m');
+      });
+    } 
+
+  };
 
   // on window resize
   // $( window ).resize(function() {

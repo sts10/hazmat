@@ -7,18 +7,16 @@
   </head>
   <body>
     <div id="header">
-        <h1>~Username Here If You Want!</h1>
+        <h1>Hazmat Newspaper</h1>
+        <p>Here are the posts from the Radiation blog that you currently follow</p>
+        <p>Use keys j and k and naviagte between posts. Then, to scroll within the selected post, use the arrow keys</p>
     </div>
-    <p>This is the Radiation template for your blog. It's written in ERB.</p>
-    <p>Maybe a header menu would go here!</p>
-
-    <p>You can edit it either by using the option in Radiation's main menu, or by finding it in the <code>~/radiation_templates</code> directory.</p>
-    <p>By default file loads CSS from '~/public_html/css/styles.css' but you can change that.</p>
+    
 
     <!-- Here is where your blog posts get generated. -->
     <div id="blog">
         <% @posts_array.each do |post| %>
-            <div class="blog_post" id="<%= post.file_name %>">   
+            <div class="blog_post" id="<%= post.file_name %>" tabindex="-1">   
                 Post by <a href="<%= post.base_url %>">~<%= post.user_name %></a>
                 <br>
                 <a href="<%= post.perma_url %>">Permalink</a>
