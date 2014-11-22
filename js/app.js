@@ -34,9 +34,9 @@ $(document).ready(function(){
           scrollPost(1);
         break;
 
-        // case 13: // enter/return/carriage return
-        //   window.location.href = addressValue;
-        // break; 
+        case 13: // enter/return/carriage return
+          window.location.href = addressValue;
+        break; 
 
         default: return; // exit this handler for other keys
       }
@@ -68,7 +68,7 @@ $(document).ready(function(){
       $('.selected_post').focus();
 
       // set global variable addressVariable to the address of the selected post
-      // addressValue = $(".selected_post").attr("href");
+      addressValue = $(".selected_post a.permalink").attr("href");
   };
 
 
