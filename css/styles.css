@@ -39,4 +39,14 @@ h1 {
 }
 .blog_post {
     margin-bottom:50px;
+    padding: 10px;
+
+    /* Make the posts in scrollable boxes */
+    max-height: 550px;
+    overflow: auto;
+}
+
+.selected_post {
+    border: 3px dotted blue;
+    border-radius: 7px;
 }
