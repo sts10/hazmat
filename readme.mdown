@@ -1,6 +1,6 @@
-# Hazmat v 0.0.6
+# Hazmat v 0.0.7
 
-Hazmat is a reader for Radiation blogs
+Hazmat is a reader for [Radiation](https://github.com/sts10/radiation) blogs
 
 ### What Hazmat Does
 
@@ -35,9 +35,15 @@ The blogs you follow are configurable in `following.rb`
 - Change Radiation default template to wrap post content in a new, separate div (see ~erik's blog as example)
 - mention notifications! 
 
-### CHANGLEOG
+### CHANGELOG
 
-#### v 0.0.6 
+#### What's new in v 0.0.7
+
+Posts have a set max-height, after which point they become scrollable. I think this makes reading many posts more manageable. 
+
+Also cleaned up the printed page's CSS and HTML. Also added some JavaScript allowing users to navigate posts with the keyboard.
+
+#### What's new in v 0.0.6 
 
 Now following 7 Radiation with minimal problems. Put in fixes for youtube iframes and improved the handling of images with relative sources. 
 
