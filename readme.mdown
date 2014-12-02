@@ -10,6 +10,13 @@ VERY MUCH IN DEVELOPMENT!
 
 ### How To Use v 0.0.X
 
+NOTE: I'm currently having trouble providing users with an easy way to install a necessary Ruby gem called Nokogiri. Nokogiri and Hazmat works fine on my local machine, but that's because I have XCode / Command Line Tools installed on my Mac. 
+
+Any help here would be appreciated.
+ 
+If you have XCode or Command Line Tools installed locally as well, you can proceed and Hazmat should work. Otherwise hang tight for now. 
+
+
 1. Clone down the directory locally.
 2. `cd` into directory. 
 3. Run `gem install nokogiri`
