@@ -1,4 +1,4 @@
-# Hazmat v 0.0.9
+# Hazmat v 0.1.0
 
 Hazmat is a reader for [Radiation](https://github.com/sts10/radiation) blogs
 
@@ -19,7 +19,7 @@ In your totally nuclear box...
 3. Run `gem install nokogiri`
 4. Now run `ruby bin/runner.rb`
 
-A console browser called Lynx should open and displly a new "webpage" with blog posts of whoever you follow.
+You'll then be told to visit `http://totallynuclear.club/~your_username/hazmat/my_hazmat_newspaper.html` to see you Hazmat "newspaper". You'll also be given the option of viewing the same newspaper in a console browser called Lynx.
 
 The blogs you follow are configurable in `following.rb`
 
@@ -39,6 +39,10 @@ The blogs you follow are configurable in `following.rb`
 - mention notifications! 
 
 ### CHANGELOG
+
+#### What's new in v 0.1.0
+
+Moves the produced newspaper to `~/public_html/hazmat/my_hazmat_newspaper.html`. But also gives option to view the same newspaper with Lynx.
 
 #### What's new in v 0.0.7
 
