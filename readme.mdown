@@ -16,7 +16,7 @@ In your totally nuclear box...
 
 1. Clone this directory to your totally nuclear box by running `git clone https://github.com/sts10/hazmat.git`.
 2. `cd` into directory. 
-3. Run `gem install nokogiri`
+3. Run `gem install nokogiri -- --use-system-libraries`. If that gives you an error, try `gem install nokogiri`
 4. Now run `ruby bin/runner.rb`
 
 You'll then be told to visit `http://totallynuclear.club/~your_username/hazmat/my_hazmat_newspaper.html` to see you Hazmat "newspaper". You'll also be given the option of viewing the same newspaper in a console browser called Lynx.
