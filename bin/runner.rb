@@ -4,11 +4,14 @@ require_relative '../config/environment'
 my_newspaper = Newspaper.new
 my_newspaper.print
 
-system "mkdir ~/public_html/hazmat"
+if File.exist?('~/public_html/hazmat') == false
+  system "mkdir ~/public_html/hazmat"
+end
 system "cp css/styles.css ~/public_html/hazmat/styles.css"
 system "cp js/app.js ~/public_html/hazmat/app.js"
 system "mv my_newspaper.html ~/public_html/hazmat/my_hazmat_newspaper.html"
 
+puts ""
 puts "Your Hazmat newspaper is available at http://totallynuclear.club/~your_username/hazmat/my_hazmat_newspaper.html"
 puts ""
 
