@@ -7,6 +7,6 @@ my_newspaper.print
 puts "what is your totally nuclear username?"
 username = "schlink"
 
-system "scp #{username}@totallynuclear.club:my_newspaper.html ~/Desktop"
+system "scp #{username}@totallynuclear.club:hazmat/my_newspaper.html ~/Desktop"
 
 # system "lynx my_newspaper.html"
