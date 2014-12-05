@@ -1,4 +1,4 @@
-# Hazmat v 0.0.8
+# Hazmat v 0.0.9
 
 Hazmat is a reader for [Radiation](https://github.com/sts10/radiation) blogs
 
