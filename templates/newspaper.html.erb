@@ -8,8 +8,8 @@
   <body>
     <div id="header">
         <h1>Hazmat Newspaper</h1>
-        <p>Here are the posts from the Radiation blog that you currently follow</p>
-        <p>Use keys j and k and naviagte between posts. Then, to scroll within the selected post, use the arrow keys. To visit the selected post, hit enter. </p>
+        <p>Here are the posts from the Radiation blog that you currently follow.</p>
+        <p>Use keys j and k and naviagte between posts. Then, to scroll within the selected post, use the arrow keys. To visit the selected post, hit enter.</p>
     </div>
     
 
@@ -17,9 +17,11 @@
     <div id="blog">
         <% @posts_array.each do |post| %>
             <div class="blog_post" id="<%= post.file_name %>" tabindex="-1">   
-                Post by <a href="<%= post.base_url %>">~<%= post.user_name %></a>
+              =============================================
+              <br>
+              <h2>Post by <a href="<%= post.base_url %>">~<%= post.user_name %></a></h2>
                 <br>
-                <a class="permalink" target="_new" href="<%= post.perma_url %>">Permalink</a>
+                <a class="permalink" target="_new" href="<%= post.perma_url %>">Permalink: <%= post.perma_url %></a>
                 <div>
            
                 <%= post.content %>
@@ -28,6 +30,7 @@
                   <a href="<%#= post.perma_url %>">Read More</a>
                 </div> -->
             </div>
+            <br><br><br><br>
         <% end %>
     </div>
 
