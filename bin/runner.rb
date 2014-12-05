@@ -19,5 +19,5 @@ puts "Alternatively, you may view your Hazmat newspaper through a console browse
 puts "Would you like to open your newspaper here in the console using Lynx? [y/N]"
 l_choice = gets.chomp
 if l_choice.downcase.strip == 'y'
-  system "lynx my_newspaper.html"
+  system "lynx ~/public_html/hazmat/my_hazmat_newspaper.html"
 end
