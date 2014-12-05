@@ -12,7 +12,9 @@ VERY MUCH IN DEVELOPMENT!
 
 ### How To Use v 0.0.X
 
-1. Clone down the directory locally.
+In your totally nuclear box...
+
+1. Clone this directory to your totally nuclear box by running `git clone https://github.com/sts10/hazmat.git`.
 2. `cd` into directory. 
 3. Run `gem install nokogiri`
 4. Now run `ruby bin/runner.rb`
