@@ -1,4 +1,4 @@
-# Hazmat v 0.0.7
+# Hazmat v 0.0.8
 
 Hazmat is a reader for [Radiation](https://github.com/sts10/radiation) blogs
 
@@ -8,22 +8,16 @@ Given that the HTML product of most Radiation blogs follow the same pattern, I t
 
 VERY MUCH IN DEVELOPMENT!
 
+**NOTE**: Hazmat works on Totally Nuclear boxes, but probably not on other tilde club boxes. This is because ~erik did something on the totally nuclear system to allow a Ruby gem called nokogiri to be successfully installed on totally nuclear boxes. 
+
 ### How To Use v 0.0.X
-
-NOTE: I'm currently having trouble providing users with an easy way to install a necessary Ruby gem called Nokogiri. Nokogiri and Hazmat works fine on my local machine, but that's because I have XCode / Command Line Tools installed on my Mac. 
-
-Any help here would be appreciated.
- 
-If you have XCode or Command Line Tools installed locally as well, you can proceed and Hazmat should work. Otherwise hang tight for now. 
-
 
 1. Clone down the directory locally.
 2. `cd` into directory. 
 3. Run `gem install nokogiri`
 4. Now run `ruby bin/runner.rb`
 
-Your default browser should open to a new webpage with blog posts from ~schlink and ~erik.
-
+A console browser called Lynx should open and displly a new "webpage" with blog posts of whoever you follow.
 
 The blogs you follow are configurable in `following.rb`
 
