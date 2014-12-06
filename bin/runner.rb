@@ -36,7 +36,7 @@ else
   system "clear"
   puts "Cool. You should be good to go."
   puts "Now, whenever you want to run Hazmat, just type hazmat and press enter."
-  puts "To edit the list of Radiation blogs you follow, run `hazmat following`"
+  puts "To edit the list of Radiation blogs you follow, run hazmat following"
   puts ""
   puts "If you'd like to check your .bash_profile for youself, quit Hazmat"
   puts "and run vim ~/.bash_profile"
@@ -46,14 +46,15 @@ else
 end
 
 
+ARGV[0].to_s = command
+command = command.downcase.strip
 
-
-if ARGV[0] == "following"
+if command == "following"
   system "vim following.rb"
   puts "Running Hazmat now with new following list"
-elsif ARGV[0].gsub("-", "") == "help" || ARGV[0] == "-h"
+elsif command.gsub("-", "") == "help" || command == "-h"
   puts "Running Hazmat will print your Hazmat newspaper."
-  puts "To edit the list of Radiation blogs you follow, run `hazmat following`"
+  puts "To edit the list of Radiation blogs you follow, run hazmat following"
 end
 
 my_newspaper = Newspaper.new
