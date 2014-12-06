@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require_relative '../config/environment'
 
-has_function = open('~/.bash_profile').grep(/function hazmat/)
+has_function = open('../.bash_profile').grep(/function hazmat/)
 if has_function != []
   puts "It look like you already have a hazmat function in your bash_profile. Cool."
 else
@@ -17,7 +17,7 @@ else
 
   if b_choice == 'y'
     puts "Adding a hazmat function to your .bash_profile."
-    File.open('~/.bash_profile', "a") do |f|
+    File.open('../.bash_profile', "a") do |f|
       f.puts("")
       f.puts("# This function lets you call Hazmat from anywhere in your box by")
       f.puts("# simply typing hazmat and pressing enter.")
@@ -32,7 +32,7 @@ else
     end
   end
 
-  system "source ~/.bash_profile"
+  system "source ../.bash_profile"
 
   system "clear"
   puts "Cool. You should be good to go."
