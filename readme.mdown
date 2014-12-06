@@ -10,7 +10,7 @@ VERY MUCH IN DEVELOPMENT!
 
 **NOTE**: Hazmat works on Totally Nuclear boxes, but probably not on other tilde club boxes. This is because ~erik did something on the totally nuclear system to allow a Ruby gem called nokogiri to be successfully installed on totally nuclear boxes. 
 
-### How To Use v 0.0.X
+### How To Use v 0.1.X
 
 In your totally nuclear box...
 
@@ -23,28 +23,26 @@ You'll be asked to add a hazmat function to your bash_profile. If you've used Ra
 
 Once your newspaper is printed you'll be asked to visit `http://totallynuclear.club/~your_username/hazmat/my_hazmat_newspaper.html` to see you Hazmat "newspaper". You'll also be given the option of viewing the same newspaper in a console browser called Lynx.
 
-The blogs you follow are configurable in `following.rb`. To open/edit this file in vim, run `vim ~/hazmat/following.rb`. Alternatively, if you have the function hazmat in your bash_profile, you can simply run `hazmat following` from anywhere in your console. HOWEVER this functionality has been a little wonky in v 0.1.1. I'm working on it. 
-
+The blogs you follow are configurable in `following.rb`. To open/edit this file in vim, run `vim ~/hazmat/following.rb`. (Future versions of Hazmat will hopefully allow users to run `hazmat following` or something similar from anywhere in their box to allow users to edit their following list. HOWEVER this functionality has been a little wonky in v 0.1.1. I'm working on it. 
 
 ### To Do
 - More testing on converting relative paths to absolute paths (especially for images)
-- Better error handling when you enter a URL that is not radiation approved
+- Better error handling when you enter a URL that is not Radiation approved
 
 ### Bigger Things to Add
 - The CLI component. One choice to add a new following-- check right then if the URL is hazmat compliant
 - Clean up  file structure
-- Consider adding a default style sheet (does Radiation have this)
-- Ability to, by default, render first x lines. Then give user a permalink to full post.
-- Make scraper super robust / error handling
+- Consider adding a default style sheet (does Radiation have this? I honestly forget...)
+- Ability to change how many lines the posts are displayed before a simple "read more" link to the permalink to the full post.
+- Make scraper super robust / error handling to account for most slight modifications Radiation users may have made to their template. 
 - Write a test to quickly and easily find out if a follow request blog is Hazmat compliant
-- Change Radiation default template to wrap post content in a new, separate div (see ~erik's blog as example)
 - mention notifications! 
 
 ### CHANGELOG
 
 #### What's new in v 0.1.1
 
-Checks for a hazmat function in the user's bash_profile. Also accepts ARGV[0]'s of following and help. See `bin/runner.rb`
+Checks for a hazmat function in the user's bash_profile. Also accepts ARGV[0]'s of following and help, however this functionality has proved wonky in tests on my actual TNC box. :( See `bin/runner.rb`. 
 
 #### What's new in v 0.1.0
 
