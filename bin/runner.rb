@@ -1,13 +1,60 @@
 #!/usr/bin/env ruby
 require_relative '../config/environment'
 
+has_function = open('~/.bash_profile').grep(/function hazmat/)
+if has_function != []
+  puts "It look like you already have a hazmat function in your bash_profile. Cool."
+else
+  puts "It looks like you don't have a hazmat function in your bash_profile"
+  puts "I'm about to edit your .bash_profile in order to make Hazmat easier to run."
+  puts "Once the function is inserted you'll be able to run Hazmat by just typing hazmat and pressing enter anywhere in your box."
+  puts "If you have already done this, or you have your own method of callind hazmat,"
+  puts "don't run this."
+  puts ""
+  puts "Add a hazmat function to your .bash_profile? (y/N)"
+
+  b_choice = gets.chomp.strip.downcase
+
+  if b_choice == 'y'
+    puts "Adding a hazmat function to your .bash_profile."
+    File.open('~/.bash_profile', "a") do |f|
+      f.puts("")
+      f.puts("# This function lets you call Hazmat from anywhere in your box by")
+      f.puts("# simply typing hazmat and pressing enter.")
+      f.puts("function hazmat {")
+      f.puts("    cwd=$(pwd)")
+      f.puts("    cd ~/hazmat")
+      f.puts("    ruby bin/runner.rb $1")
+      f.puts("    cd $cwd")
+      f.puts("}")
+      f.puts("")
+      # f.close
+  end
+
+  system "source ~/.bash_profile"
+
+  system "clear"
+  puts "Cool. You should be good to go."
+  puts "Now, whenever you want to run Hazmat, just type hazmat and press enter."
+  puts "To edit the list of Radiation blogs you follow, run `hazmat following`"
+  puts ""
+  puts "If you'd like to check your .bash_profile for youself, quit Hazmat"
+  puts "and run vim ~/.bash_profile"
+  puts ""
+  puts "Press ENTER to continue..."
+  gets
+end
+
+
+
+
 if ARGV[0] == "following"
   system "vim following.rb"
   puts "Running Hazmat now with new following list"
 elsif ARGV[0].gsub("-", "") == "help" || ARGV[0] == "-h"
-  puts "Running Hzazmat will print your Hazmat newspaper."
+  puts "Running Hazmat will print your Hazmat newspaper."
   puts "To edit the list of Radiation blogs you follow, run `hazmat following`"
-  
+end
 
 my_newspaper = Newspaper.new
 my_newspaper.print
