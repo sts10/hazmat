@@ -1,4 +1,4 @@
-# Hazmat v 0.1.0
+# Hazmat v 0.1.1
 
 Hazmat is a reader for [Radiation](https://github.com/sts10/radiation) blogs
 
@@ -19,9 +19,11 @@ In your totally nuclear box...
 3. Run `gem install nokogiri -- --use-system-libraries`. If that gives you an error, try `gem install nokogiri`
 4. Now run `ruby bin/runner.rb`
 
-You'll then be told to visit `http://totallynuclear.club/~your_username/hazmat/my_hazmat_newspaper.html` to see you Hazmat "newspaper". You'll also be given the option of viewing the same newspaper in a console browser called Lynx.
+You'll be asked to add a hazmat function to your bash_profile. If you've used Radiation you're porbably familar with this. It makes running Hazmat easier-- you'll no longer have to run `cd ~/hazmat; ruby bin/runner.rb` to run Hazmat. Strongly recommend you say `y` when asked. 
 
-The blogs you follow are configurable in `following.rb`. To open/edit this file in vim, run `vim ~/hazmat/following.rb`.
+Once your newspaper is printed you'll be asked to visit `http://totallynuclear.club/~your_username/hazmat/my_hazmat_newspaper.html` to see you Hazmat "newspaper". You'll also be given the option of viewing the same newspaper in a console browser called Lynx.
+
+The blogs you follow are configurable in `following.rb`. To open/edit this file in vim, run `vim ~/hazmat/following.rb`. Alternatively, if you have the function hazmat in your bash_profile, you can simply run `hazmat following` from anywhere in your console. 
 
 
 ### To Do
@@ -39,6 +41,10 @@ The blogs you follow are configurable in `following.rb`. To open/edit this file 
 - mention notifications! 
 
 ### CHANGELOG
+
+#### What's new in v 0.1.1
+
+Checks for a hazmat function in the user's bash_profile. Also accepts ARGV[0]'s of following and help. See `bin/runner.rb`
 
 #### What's new in v 0.1.0
 
