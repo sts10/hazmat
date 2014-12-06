@@ -47,7 +47,7 @@ else
 end
 
 
-ARGV[0].to_s = command
+command = ARGV[0].to_s
 command = command.downcase.strip
 
 if command == "following"
