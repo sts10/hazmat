@@ -1,6 +1,14 @@
 #!/usr/bin/env ruby
 require_relative '../config/environment'
- 
+
+if ARGV[0] == "following"
+  system "vim following.rb"
+  puts "Running Hazmat now with new following list"
+elsif ARGV[0].gsub("-", "") == "help" || ARGV[0] == "-h"
+  puts "Running Hzazmat will print your Hazmat newspaper."
+  puts "To edit the list of Radiation blogs you follow, run `hazmat following`"
+  
+
 my_newspaper = Newspaper.new
 my_newspaper.print
 
