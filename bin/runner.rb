@@ -29,6 +29,7 @@ else
       f.puts("}")
       f.puts("")
       # f.close
+    end
   end
 
   system "source ~/.bash_profile"
