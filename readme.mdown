@@ -23,7 +23,7 @@ You'll be asked to add a hazmat function to your bash_profile. If you've used Ra
 
 Once your newspaper is printed you'll be asked to visit `http://totallynuclear.club/~your_username/hazmat/my_hazmat_newspaper.html` to see you Hazmat "newspaper". You'll also be given the option of viewing the same newspaper in a console browser called Lynx.
 
-The blogs you follow are configurable in `following.rb`. To open/edit this file in vim, run `vim ~/hazmat/following.rb`. Alternatively, if you have the function hazmat in your bash_profile, you can simply run `hazmat following` from anywhere in your console. 
+The blogs you follow are configurable in `following.rb`. To open/edit this file in vim, run `vim ~/hazmat/following.rb`. Alternatively, if you have the function hazmat in your bash_profile, you can simply run `hazmat following` from anywhere in your console. HOWEVER this functionality has been a little wonky in v 0.1.1. I'm working on it. 
 
 
 ### To Do
